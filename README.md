@@ -8,7 +8,8 @@ HexDump::Tiny
 
     use HexDump::Tiny;
 
-    my $s = slurp("filename");
-    .say for hexdump($s);
+    .say for hexdump(slurp("filename"));
 
 = Description =
+
+Generate a hexdump from a scalar.
