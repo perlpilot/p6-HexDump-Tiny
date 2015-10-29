@@ -10,6 +10,6 @@ sub hexdump($value, :$chunk-size = 16) is export {
         }, @$v;
         take ($k*$chunk-size).fmt('%08x:  ') ~ 
             sprintf("%-*s", $chunk-size * 2 + $chunk-size div 2, $hex)  ~ "  " ~ 
-            $v.join;
+            $v.list.map({ s:g/<-print>/./; $_ }).join;
     }
 }
